@@ -31,3 +31,6 @@ npm-debug.log
 
 # JetBrains environments
 .idea
+
+# Package Lock (as it has issues working on different OSs)
+package-lock.json

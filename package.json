@@ -8,11 +8,28 @@
   },
   "dependencies": {
     "body-parser": "~1.18.2",
+    "chance": "^1.0.12",
+    "config": "^1.27.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.15.5",
+    "express-handlebars": "^3.0.0",
+    "hasha": "^3.0.0",
     "hbs": "~4.0.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.19.1",
     "morgan": "~1.9.0",
+    "node-cache": "^4.1.1",
+    "node-schedule": "^1.2.5",
+    "nodemon": "^1.12.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-session": "^1.0.2",
+    "pg": "^7.3.0",
+    "pg-hstore": "^2.3.2",
+    "request": "^2.83.0",
+    "sequelize": "^4.19.0",
+    "sequelize-cli": "^3.0.0",
     "serve-favicon": "~2.4.5"
   }
 }
