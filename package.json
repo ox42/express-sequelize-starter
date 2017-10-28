@@ -7,6 +7,7 @@
     "test": "node -v"
   },
   "dependencies": {
+    "bluebird": "^3.5.1",
     "body-parser": "~1.18.2",
     "chance": "^1.0.12",
     "config": "^1.27.0",
