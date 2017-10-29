@@ -6,7 +6,8 @@
     "start": "gulp develop",
     "prepare": "gulp production",
     "execute": "node ./bin/www",
-    "test": "node -v"
+    "test": "node -v",
+    "nightwatch": "node_modules/.bin/nightwatch"
   },
   "dependencies": {
     "autoprefixer": "^7.1.6",
@@ -34,6 +35,7 @@
     "lodash": "^4.17.4",
     "moment": "^2.19.1",
     "morgan": "~1.9.0",
+    "nightwatch": "^0.9.16",
     "node-cache": "^4.1.1",
     "node-schedule": "^1.2.5",
     "nodemon": "^1.12.1",
