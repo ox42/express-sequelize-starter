@@ -34,3 +34,6 @@ npm-debug.log
 
 # Package Lock (as it has issues working on different OSs)
 package-lock.json
+
+# Gulp generated files
+public/dist

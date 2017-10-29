@@ -1,32 +1,57 @@
 var express = require('express');
 var path = require('path');
+var config = require('config');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var exphbs  = require('express-handlebars');
+var cookieSession = require('cookie-session');
 
 //we do a global import, because we want asyncWrap to be
 //available everywhere, as we use it in various routes
 asyncWrap = require('./asyncWrap');
 
-//setup routes
-var index = require('./routes/index');
-
 var app = express();
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main',
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+    helpers: {
+        inc: (number) => number + 1,
+        withSeparator: (number) => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+
+        ifEmpty: (array, options) => ((array.length === 0) ? options.fn(this) : options.inverse(this)),
+        ifNotEmpty: (array, options) => ((array && array.length > 0) ? options.fn(this) : options.inverse(this)),
+        ifEqual: (v1, v2, options) => ((v1 === v2) ? options.fn(this) : options.inverse(this)),
+        ifContains: (v1, v2, options) => ((v1 && v1.indexOf(v2) >= 0) ? options.fn(this) : options.inverse(this)),
+
+        ifLargerThan: (v1, v2, options) => ((v1 > v2) ? options.fn(this) : options.inverse(this)),
+        ifSmallerThan: (v1, v2, options) => ((v1 < v2) ? options.fn(this) : options.inverse(this))
+    }
+}));
+
+app.set('view engine', 'handlebars');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(cookieSession({
+    name: 'app-session',
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    secure: false,
+
+    keys: [ config.EXPRESS_SESSION_SECRET ]
+}));
+
+
+//setup routes
+var index = require('./routes/index');
 app.use('/', index);
 
 // catch 404 and forward to error handler
