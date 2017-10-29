@@ -35,6 +35,10 @@ $ npm run start
 That will start a server at port 3000 (accessable at http://localhost:3000), with monitoring of files. Basically, if you make any changes to your files, they will
 be automatically compiled, so when you refresh your browser (page), you will get the latest version of the app.
 
+Once you start the app, you can click on the "Authentication" link, and login with "admin@express.org" and password "secret". What you'll see is a basic example
+of authentication, but by looking in the routes, you can see how some of them are restricted (for logged in users), and some are unrestricted. This allows you to
+modify the code and create a new (smaller or bigger) app just by following the principles outlined in the source code.
+
 
 ## Routes
  Most of the time, you'll be working by creating new routes. Those are done in the routes/ directory, so start by taking a look there, as there is already an example file
