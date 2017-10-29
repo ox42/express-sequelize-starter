@@ -69,7 +69,7 @@ $ node_modules/.bin/sequelize db:migrate
 
 
 ## Docker
-To run the app with docker, go to the source directory (the main folder with the app), build it with npm install and npm compile (for development), and use
+To run the app with docker, go to the source directory (the main folder of the app), build it with npm install and npm compile (for development), and use
 
 ```bash
 docker run --name express-starter-app -p 3000:3000 -v `pwd`:/app -d keymetrics/pm2-docker-alpine:8 pm2-docker start --auto-exit --env development process.yml
