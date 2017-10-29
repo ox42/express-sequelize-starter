@@ -40,3 +40,6 @@ public/dist
 
 # Ignore Nightwatch reports
 reports
+
+# Ignore sqlite database
+db.development.sqlite

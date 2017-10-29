@@ -9,9 +9,10 @@ var bodyParser = require('body-parser');
 var exphbs  = require('express-handlebars');
 var cookieSession = require('cookie-session');
 
-//we do a global import, because we want asyncWrap to be
+//we do a global import, because we want asyncWrap and models to be
 //available everywhere, as we use it in various routes
 asyncWrap = require('./asyncWrap');
+models = require('./models');
 
 var app = express();
 app.engine('handlebars', exphbs({
