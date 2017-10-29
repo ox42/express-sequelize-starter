@@ -9,9 +9,11 @@ We use this boilerplate for both smaller and bigger projects, but you should not
 Instead, it uses jQuery, and gulp for concatenation and minification (allowing you to have a separate script file for every page, which is later automatically
 concatenated to one script file). The frontend design for the app uses Bootstrap v3 (latest stable release).
 
-![](/docs/express-demo-1.jpg | width=800)
-![](/docs/express-demo-2.jpg | width=800)
-![](/docs/express-demo-3.jpg | width=800)
+<p align="center">
+<img src="/docs/express-demo-1.jpg" width="700">
+<img src="/docs/express-demo-2.jpg" width="700">
+<img src="/docs/express-demo-3.jpg" width="700">
+</p>
 
 The repository (once you clone it) contains a demonstration of an authentication workflow with passport (including migrations and username/password login),
 with security principles in mind (like, hashing the passwords). You can use this to quickly startup new projects.
