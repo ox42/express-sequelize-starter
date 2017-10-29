@@ -74,8 +74,6 @@ passport.use(new LocalStrategy(function (email, password, done) {
         models.Account.findOne({where: { email: _.trim(email.toLowerCase()) }, raw: true})
     ).then(function (user) {
 
-        console.log(user);
-
         if (user) {
             if (user.password !== encryptedPassword) {
                 return done(null, false);
