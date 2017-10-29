@@ -37,3 +37,6 @@ package-lock.json
 
 # Gulp generated files
 public/dist
+
+# Ignore Nightwatch reports
+reports
