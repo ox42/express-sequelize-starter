@@ -3,14 +3,15 @@ var _ = require('lodash');
 var fs = require('fs');
 var path = require('path');
 var config = require('config');
+var dbConfig = require('../config/config.json');
 var Sequelize = require('sequelize');
 
 var basename = path.basename(module.filename);
-var environment = config.environment;
+var environment = config.DB_ENVIRONMENT;
 
 var db = {};
-var sequelize = new Sequelize(_.assign(config[environment],
-    (config.environment !== 'production' ? { logging: console.log } : {})));
+var sequelize = new Sequelize(_.assign(dbConfig[environment],
+    (config.DB_ENVIRONMENT !== 'production' ? { logging: console.log } : {})));
 
 fs.readdirSync(__dirname)
     .filter(function (file) {

@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+
+            <div class="big-margin-on-desktop">
+
+                <h2 style="text-align: center; font-size: 30px; margin-bottom: 40px;">Accounts</h2>
+
+                <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Id</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Email address</th>
+                        <th>Creation date</th>
+                    </tr>
+
+                    {{#each accounts}}
+                        <tr>
+                            <td>{{ this.id }}</td>
+                            <td>{{ this.firstName }}</td>
+                            <td>{{ this.lastName }}</td>
+                            <td>{{ this.email }}</td>
+                            <td>{{#momentDiff this.createdAt}}{{/momentDiff}}</td>
+                        </tr>
+                    {{/each}}
+                </table>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" href="/logout" class="btn btn-primary logout-button pull-right">Log me out.</button>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
