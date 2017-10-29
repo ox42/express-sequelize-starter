@@ -1,3 +1,17 @@
-<h1>{{message}}</h1>
-<h2>{{error.status}}</h2>
-<pre>{{error.stack}}</pre>
+
+<div class="container">
+    <div class="col-xs-12 col-lg-8 col-lg-offset-2">
+
+        <div class="big-margin-on-desktop" style="text-align: center;">
+            <img src="/images/warning.png" style="text-align: center; width: 90px; height: auto; opacity: 0.7;" /><br />
+            <p style="font-size: 23px; text-align: center; margin-top: 20px;">Ups, an unexpected error occurred. We have been notified of the incident and will apply a fix as soon as possible. We apologize for the inconvenience.</p>
+        </div>
+
+        <div class="big-margin-on-desktop">
+            {{#if error}}
+                <p style="font-size: 21px; text-align: center;">It appears that you are running the app in "development" mode, and we can show you the error.</p>
+                <p style="font-size: 19px; text-align: center; margin-bottom: 60px;"><strong>{{ message }}</strong> {{ error.status }} {{ error.stack }}</p>
+            {{/if}}
+        </div>
+    </div>
+</div>
