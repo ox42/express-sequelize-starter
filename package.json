@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "start": "gulp develop",
-    "prepare": "gulp production",
-    "execute": "node ./bin/www",
+    "compile": "gulp compile",
+    "prepare-production": "gulp production",
+    "execute-production": "node ./bin/www",
     "test": "node -v",
     "nightwatch": "node_modules/.bin/nightwatch"
   },
