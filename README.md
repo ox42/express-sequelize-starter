@@ -9,6 +9,10 @@ We use this boilerplate for both smaller and bigger projects, but you should not
 Instead, it uses jQuery, and gulp for concatenation and minification (allowing you to have a separate script file for every page, which is later automatically
 concatenated to one script file). The frontend design for the app uses Bootstrap v3 (latest stable release).
 
+![](/docs/express-demo-1.jpg | width=800)
+![](/docs/express-demo-2.jpg | width=800)
+![](/docs/express-demo-3.jpg | width=800)
+
 The repository (once you clone it) contains a demonstration of an authentication workflow with passport (including migrations and username/password login),
 with security principles in mind (like, hashing the passwords). You can use this to quickly startup new projects.
 
@@ -31,13 +35,13 @@ be automatically compiled, so when you refresh your browser (page), you will get
 
 
 ## Routes
- Most of the time, you'll be working by creating new routes. Those are done in the routes/ directory, so take a look there first, as there is already an example file
+ Most of the time, you'll be working by creating new routes. Those are done in the routes/ directory, so start by taking a look there, as there is already an example file
  describing how the process works. Inside, you'll be able to find how to run database queries with async/await, which is just beautiful.
 
 ## Database and migrations
- If you want to add another table or column, you need to look at the models/ directory and add your new table definition there (as a new folder). Afterwards, you just
- create a new migration in the migrations/ directory. There are already examples there for an "Accounts" table, so it's very easy to create new ones just by
- following what's already there.
+ If you want to add another table or column, you need to look at the models/ directory and add your new table definition there (as a new .js file). Afterwards, you just
+ create a new migration in the migrations/ directory. There are already some examples there for an "Accounts" table, so it's very easy to create new ones just by
+ following what's already presented.
 
  Once you have your migrations created, you can just run them with:
 
@@ -46,8 +50,8 @@ $ node_modules/.bin/sequelize db:migrate
 ```
 
  By default, if you look at the config/ directory, you will see that the application uses sqlite. In production, you will probably want to modify the sequelize config
- and use a better database management system. We love using PostgreSQL, so we recommend you use that. You can find a bunch of examples online, but most basically look
- like this:
+ and use a better database management system. We love using PostgreSQL, so we recommend you use that. You can find a bunch of examples online, but we suggest you do
+ something like this:
 
 ```json
 {
@@ -63,7 +67,7 @@ $ node_modules/.bin/sequelize db:migrate
 
 
 ## Docker
-To run the app with docker, go to the app folder, build it with npm install and npm compile (for development), and use
+To run the app with docker, go to the source directory (the main folder with the app), build it with npm install and npm compile (for development), and use
 
 ```bash
 docker run --name express-starter-app -p 3000:3000 -v `pwd`:/app -d keymetrics/pm2-docker-alpine:8 pm2-docker start --auto-exit --env development process.yml
